@@ -1,89 +1,51 @@
 ---
 layout: cv
-title: Isaac Newtons's CV
+title: Naoto Nakatani's CV
 ---
-# Isaac Newton
-Physicist, Mathematician, Cambridge professor.
+# Naoto Nakatani
 
 <div id="webaddress">
-<a href="isaac@applesdofall.org">isaac@applesdofall.org</a>
-| <a href="http://en.wikipedia.org/wiki/Isaac_Newton">My wikipedia page</a>
+<a href="nak24019@byui.edu">nak24019@byui.edu</a>
+| <a href="http://www.linkedin.com/in/naoto-nakatani">IinkedIn</a>
 </div>
 
 
-## Currently
+## Academic Projects
 
-Standing on the shoulders of giants
-
-### Specialized in
-
-Laws of motion, gravitation, minting coins, disliking [Robert Hooke](http://en.wikipedia.org/wiki/Robert_Hooke)
-
-
-### Research interests
-
-Cooling, power series, optics, alchemy, planetary motions, apples.
+`Spring 2025`
+__Disease Spread Simulation (Python Project)__
+- Developed an interactive disease spread simulator using Python and Tkinter.
+- Implemented probabilistic infection, recovery, and mortality models.
+- Applied OOP principles to manage simulation states and graphical rendering.
+- Tracked and visualized metrics such as steps, peak infection, and recoveries.
 
 
 ## Education
 
-`1654-1660`
-__The King's School, Grantham.__
 
-`June 1661 - now`
-__Trinity College, Cambridge__
-
-- Sizar
-
-`1667 - death`
-__Trinity College, Cambridge__
-
-- Fellow
+`Apr 2025 - now`    
+__Brigham Young University - Idaho, Idaho__
 
 
-
-## Awards
-
-`2012`
-President, *Royal Society*, London, UK
-
-Associate, *French Academy of Science*, Paris, France
+## Experience
 
 
-
-## Publications
-
-<!-- A list is also available [online](http://scholar.google.co.uk/citations?user=LTOTl0YAAAAJ) -->
-
-### Journals
-
-`1669`
-Newton Sir I, De analysi per æquationes numero terminorum infinitas. 
-
-`1669`
-Lectiones opticæ.
-
-etc. etc. etc.
-
-### Patents
-
-`2012`
-Infinitesimal calculus for solutions to physics problems, [SMBC](http://www.techdirt.com/articles/20121011/09312820678/if-patents-had-been-around-time-newton.shtml) patent 001
+`Apr 2024 – Nov 2024`
+__Mikuni International College – Computer Science Teaching Assistant__
+- Assisted in teaching CS classes and grading assignments and exams.
+- Provided one-on-one student support to improve coursework understanding.
+- Collaborated with instructors to enhance teaching quality.
+- Served as a student leader coordinating meetings with faculty and volunteers.
 
 
-## Occupation
-
-`1600`
-__Royal Mint__, London
-
-- Warden
-- Minted coins
-
-`1600`
-__Lucasian professor of Mathematics__, Cambridge University
+`Mar 2022 – Apr 2024`
+__Community Volunteer Representative — Fukuoka, Japan__
+- Dedicated 70+ hours/week to community outreach and service projects.
+- Trained and mentored 10+ team members in communication and leadership.
+- Organized weekly meetings and coordinated with local organizations.
 
 
 
-<!-- ### Footer
-
-Last updated: May 2013 -->
+- **Computer Skills:** MS Word, Excel, PowerPoint, Python  
+- **Languages:** Fluent in Japanese; basic Chinese  
+- **Work Eligibility:** Eligible to work in the U.S.; will require visa sponsorship for full-time employment
