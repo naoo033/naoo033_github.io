@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>シンプル家計簿</title>
+<link rel="stylesheet" href="style.css">
+<script src="vendor/chart.umd.js"></script>
+</head>
+<body>
+
+<header class="app-header">
+  <h1>シンプル家計簿</h1>
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="dashboard">ダッシュボード</button>
+    <button class="tab-btn" data-tab="settings">収入・固定費</button>
+    <button class="tab-btn" data-tab="expenses">支出記録</button>
+    <button class="tab-btn" data-tab="assets">資産</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- Dashboard -->
+  <section id="dashboard" class="tab-panel active">
+    <div class="cards">
+      <div class="card">
+        <p class="label">今月使っていいお金</p>
+        <p class="value" id="availableBudget">¥0</p>
+      </div>
+      <div class="card">
+        <p class="label">今月の支出</p>
+        <p class="value" id="spentThisMonth">¥0</p>
+      </div>
+      <div class="card" id="remainingCard">
+        <p class="label">残り予算</p>
+        <p class="value" id="remainingBudget">¥0</p>
+      </div>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>
+      <p class="progress-label" id="progressLabel">0% 使用</p>
+    </div>
+
+    <div class="charts">
+      <div class="chart-box">
+        <h3>カテゴリ別支出（今月）</h3>
+        <canvas id="categoryChart"></canvas>
+        <p class="empty-msg" id="categoryEmpty">まだ支出の記録がありません</p>
+      </div>
+      <div class="chart-box">
+        <h3>月別支出推移</h3>
+        <canvas id="trendChart"></canvas>
+        <p class="empty-msg" id="trendEmpty">まだ支出の記録がありません</p>
+      </div>
+      <div class="chart-box">
+        <h3>資産推移（銀行＋投資）</h3>
+        <canvas id="assetChart"></canvas>
+        <p class="empty-msg" id="assetEmpty">まだ資産の記録がありません</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Settings -->
+  <section id="settings" class="tab-panel">
+    <h2>収入・固定費・貯金目標</h2>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="incomeInput">月の手取り収入（円）</label>
+        <input type="number" id="incomeInput" min="0" placeholder="例：300000">
+      </div>
+      <div class="form-group">
+        <label for="savingsInput">月の貯金目標（円）</label>
+        <input type="number" id="savingsInput" min="0" placeholder="例：50000">
+      </div>
+    </div>
+
+    <h3>固定費一覧（家賃・保険・サブスクなど）</h3>
+    <ul class="item-list" id="fixedExpenseList"></ul>
+    <form id="fixedExpenseForm" class="inline-form">
+      <input type="text" id="fixedName" placeholder="項目名（例：家賃）" required>
+      <input type="number" id="fixedAmount" placeholder="金額" min="0" required>
+      <button type="submit">追加</button>
+    </form>
+    <p class="total-line">固定費合計：<span id="fixedTotal">¥0</span></p>
+
+    <button id="saveSettingsBtn" class="primary-btn">保存する</button>
+    <p class="save-msg" id="saveMsg"></p>
+  </section>
+
+  <!-- Expenses -->
+  <section id="expenses" class="tab-panel">
+    <h2>支出を記録</h2>
+    <form id="expenseForm" class="inline-form">
+      <input type="date" id="expenseDate" required>
+      <select id="expenseCategory">
+        <option>食費</option>
+        <option>日用品</option>
+        <option>交通</option>
+        <option>娯楽</option>
+        <option>交際費</option>
+        <option>医療</option>
+        <option>衣服</option>
+        <option>その他</option>
+      </select>
+      <input type="number" id="expenseAmount" placeholder="金額" min="0" required>
+      <input type="text" id="expenseMemo" placeholder="メモ（任意）">
+      <button type="submit">記録する</button>
+    </form>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>日付</th><th>カテゴリ</th><th>金額</th><th>メモ</th><th></th></tr>
+      </thead>
+      <tbody id="expenseTableBody"></tbody>
+    </table>
+    <p class="empty-msg" id="expenseEmpty">まだ支出の記録がありません</p>
+  </section>
+
+  <!-- Assets -->
+  <section id="assets" class="tab-panel">
+    <h2>資産の記録（定期的にチェック）</h2>
+    <p class="hint">銀行口座・投資口座の残高合計を、確認した日付ごとに記録しましょう。</p>
+    <form id="assetForm" class="inline-form">
+      <input type="date" id="assetDate" required>
+      <input type="number" id="bankAmount" placeholder="銀行残高合計" min="0" required>
+      <input type="number" id="investmentAmount" placeholder="投資残高合計" min="0" required>
+      <button type="submit">記録する</button>
+    </form>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>日付</th><th>銀行</th><th>投資</th><th>合計</th><th></th></tr>
+      </thead>
+      <tbody id="assetTableBody"></tbody>
+    </table>
+    <p class="empty-msg" id="assetTableEmpty">まだ資産の記録がありません</p>
+  </section>
+
+</main>
+
+<footer class="app-footer">
+  <button id="exportBtn">データ書き出し</button>
+  <label class="file-btn">
+    データ読み込み
+    <input type="file" id="importFile" accept=".json" hidden>
+  </label>
+  <button id="resetBtn" class="danger-btn">全データ削除</button>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

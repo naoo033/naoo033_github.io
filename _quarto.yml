@@ -1,6 +1,8 @@
-project: 
+project:
   type: website
   output-dir: docs
+  resources:
+    - budget-tracker/**
 
 website:
   title: "Naoto Nakatani - Data Science Portfolio"
